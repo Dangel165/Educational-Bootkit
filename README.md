@@ -26,9 +26,6 @@ bootkit-analysis-framework/
 │   └── BootkitTools/     # 분석 도구
 ├── tests/                # 테스트 프로젝트
 │   └── BootkitTests/     # 테스트 스위트
-├── libs/                 # 공유 라이브러리
-├── docs/                 # 문서
-└── scripts/              # 빌드 및 설치 스크립트
 ```
 ## 주요 기능
 
