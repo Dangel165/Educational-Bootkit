@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="TestSign|x64">
+      <Configuration>TestSign</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</ProjectGuid>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <Keyword>WindowsKernelModeDriver</Keyword>
+    <RootNamespace>BootkitDriver</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ConfigurationType>Driver</ConfigurationType>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <DriverType>WDM</DriverType>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='TestSign|x64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\WindowsDriver.KernelMode.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='TestSign|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>BootkitDriver</TargetName>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(WDKContentRoot)\inc\api;$(WDKContentRoot)\inc\crt;$(WDKContentRoot)\inc\api\crt\stl60;$(IncludePath)</IncludePath>
+    <LibraryPath>$(WDKContentRoot)\lib\$(WDKLibVersion)\km\x64;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <DebuggerFlavor>WindowsKernelModeDebugger</DebuggerFlavor>
+    <TreatWarningAsError>true</TreatWarningAsError>
+    <WarningLevel>Level4</WarningLevel>
+    <AdditionalOptions>/kernel /GS- /guard:cf- %(AdditionalOptions)</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>BootkitDriver</TargetName>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(WDKContentRoot)\inc\api;$(WDKContentRoot)\inc\crt;$(WDKContentRoot)\inc\api\crt\stl60;$(IncludePath)</IncludePath>
+    <LibraryPath>$(WDKContentRoot)\lib\$(WDKLibVersion)\km\x64;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <DebuggerFlavor>WindowsKernelModeDebugger</DebuggerFlavor>
+    <TreatWarningAsError>true</TreatWarningAsError>
+    <WarningLevel>Level4</WarningLevel>
+    <AdditionalOptions>/kernel /GS- /guard:cf- %(AdditionalOptions)</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='TestSign|x64'">
+    <TargetName>BootkitDriver</TargetName>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(WDKContentRoot)\inc\api;$(WDKContentRoot)\inc\crt;$(WDKContentRoot)\inc\api\crt\stl60;$(IncludePath)</IncludePath>
+    <LibraryPath>$(WDKContentRoot)\lib\$(WDKLibVersion)\km\x64;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <DebuggerFlavor>WindowsKernelModeDebugger</DebuggerFlavor>
+    <TreatWarningAsError>true</TreatWarningAsError>
+    <WarningLevel>Level4</WarningLevel>
+    <AdditionalOptions>/kernel /GS- /guard:cf- %(AdditionalOptions)</AdditionalOptions>
+    <SignMode>TestSign</SignMode>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_AMD64_;_WIN64;DBG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBoardFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>true</SmallerTypeCheck>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Native</SubSystem>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>ntoskrnl.lib;hal.lib;wdm.lib;wdmsec.lib;wmilib.lib;ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <StackReserveSize>400000</StackReserveSize>
+      <StackCommitSize>4000</StackCommitSize>
+      <Driver>Driver</Driver>
+      <Profile>false</Profile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo Driver built successfully: $(TargetPath)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_AMD64_;_WIN64;DBG=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBoardFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <SmallerTypeCheck>true</SmallerTypeCheck>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Native</SubSystem>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>ntoskrnl.lib;hal.lib;wdm.lib;wdmsec.lib;wmilib.lib;ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <StackReserveSize>400000</StackReserveSize>
+      <StackCommitSize>4000</StackCommitSize>
+      <Driver>Driver</Driver>
+      <Profile>false</Profile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo Driver built successfully: $(TargetPath)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='TestSign|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_AMD64_;_WIN64;DBG=0;TEST_SIGN=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBoardFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <SmallerTypeCheck>true</SmallerTypeCheck>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Native</SubSystem>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>ntoskrnl.lib;hal.lib;wdm.lib;wdmsec.lib;wmilib.lib;ndis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <StackReserveSize>400000</StackReserveSize>
+      <StackCommitSize>4000</StackCommitSize>
+      <Driver>Driver</Driver>
+      <Profile>false</Profile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo Test signing driver...
+signtool sign /fd SHA256 /a /tr http://timestamp.digicert.com /td SHA256 "$(TargetPath)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Driver.h" />
+    <ClInclude Include="IrpHandlers.h" />
+    <ClInclude Include="DeviceControl.h" />
+    <ClInclude Include="Debug.h" />
+    <ClInclude Include="IrpMonitor.h" />
+    <ClInclude Include="KernelHookFramework.h" />
+    <ClInclude Include="EvasionEngine.h" />
+    <ClInclude Include="ProcessConcealmentEngine.h" />
+    <ClInclude Include="DiscordWebhookManager.h" />
+    <ClInclude Include="BootFlowInterceptor.h" />
+    <ClInclude Include="BootLoaderEntryPointAnalyzer.h" />
+    <ClInclude Include="MinifilterDriver.h" />
+    <ClInclude Include="AntiDetectionAnalyzer.h" />
+    <ClInclude Include="AntiForensicsManager.h" />
+    <ClInclude Include="AutonomousDecisionEngine.h" />
+    <ClInclude Include="ChromeDataAnalyzer.h" />
+    <ClInclude Include="CommunicationAdapter.h" />
+    <ClInclude Include="Concurrency.h" />
+    <ClInclude Include="DPAPIAnalyzer.h" />
+    <ClInclude Include="EnhancedLogging.h" />
+    <ClInclude Include="FileHidingAnalyzer.h" />
+    <ClInclude Include="GitHubTokenExtractor.h" />
+    <ClInclude Include="IntelligenceGatheringSystem.h" />
+    <ClInclude Include="MemoryManagement.h" />
+    <ClInclude Include="ModernCpp.h" />
+    <ClInclude Include="SelfProtectionSystem.h" />
+    <ClInclude Include="SelfUpdateMechanism.h" />
+    <ClInclude Include="SilentDataCollector.h" />
+    <ClInclude Include="StealthOperationManager.h" />
+    <ClInclude Include="SystemCallAnalyzer.h" />
+    <ClInclude Include="TemplateUtils.h" />
+    <ClInclude Include="UEFIAnalysisEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="IrpHandlers.cpp" />
+    <ClCompile Include="DeviceControl.cpp" />
+    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="IrpMonitor.cpp" />
+    <ClCompile Include="KernelHookFramework.cpp" />
+    <ClCompile Include="EvasionEngine.cpp" />
+    <ClCompile Include="ProcessConcealmentEngine.cpp" />
+    <ClCompile Include="DiscordWebhookManager.cpp" />
+    <ClCompile Include="BootFlowInterceptor.cpp" />
+    <ClCompile Include="BootLoaderEntryPointAnalyzer.cpp" />
+    <ClCompile Include="MinifilterDriver.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="BootkitDriver.inf" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\WindowsDriver.KernelMode.targets" />
+  </ImportGroup>
+</Project>

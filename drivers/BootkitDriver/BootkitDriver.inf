@@ -1,0 +1,54 @@
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%ManufacturerName%
+DriverVer=04/18/2026,1.0.0.0
+CatalogFile=BootkitDriver.cat
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+BootkitDriver.sys = 1
+
+[Manufacturer]
+%ManufacturerName% = Microsoft,NT$ARCH$
+
+[Microsoft.NT$ARCH$]
+%BootkitDriver.DeviceDesc% = BootkitDriver_Install, Root\BOOTKITDRIVER
+
+[BootkitDriver_Install.NT]
+CopyFiles = BootkitDriver_CopyFiles
+AddReg = BootkitDriver_AddReg
+
+[BootkitDriver_Install.NT.Services]
+AddService = BootkitDriver, 0x00000002, BootkitDriver_ServiceInstall
+
+[BootkitDriver_CopyFiles]
+BootkitDriver.sys
+
+[BootkitDriver_AddReg]
+HKR, "Parameters", "DebugLevel", 0x00010001, 0x00000001
+HKR, "Parameters", "EnableLogging", 0x00010001, 0x00000001
+
+[BootkitDriver_ServiceInstall]
+DisplayName    = %BootkitDriver.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\BootkitDriver.sys
+LoadOrderGroup = Base
+
+[BootkitDriver_ServiceInstall.Security]
+Security = "D:P(A;;GA;;;SY)(A;;GA;;;BA)"
+
+[Strings]
+ManufacturerName="Bootkit Analysis Framework"
+DiskName="Bootkit Driver Installation Disk"
+BootkitDriver.DeviceDesc="Bootkit Analysis Framework Driver"
+BootkitDriver.SvcDesc="Bootkit Analysis Framework Service"
